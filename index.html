@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GratianWeb API Hub</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* GRID DAS APIS */
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* ESTILO DO CARD (CADA ROTA) */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+
+        .method-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .get {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+
+        .post {
+            background-color: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+
+        .put {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .endpoint-box {
+            background-color: #0b1120;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px dashed #334155;
+        }
+
+        .btn-access {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            padding: 12px 0;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-access:hover {
+            background-color: #2563eb;
+        }
+
+        /* RODAPÉ */
+        footer {
+            margin-top: 60px;
+            color: #475569;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>GratianWeb APIs</h1>
+        <p class="subtitle">Hub central de micro-serviços e endpoints.</p>
+        <div style="margin-top: 15px;">
+            <span style="color: var(--success);">● Sistema Online</span>
+            <span style="color: #475569; margin: 0 10px;">|</span>
+            <span style="color: var(--text-muted);">Node: Graciano</span>
+        </div>
+    </header>
+
+    <div class="api-grid">
+
+        <!-- CARD 1: Exemplo de Rota (API Fast) -->
+        <!-- COPIE DAQUI ATÉ O FIM DO CARD PARA CRIAR OUTRO -->
+        <div class="card">
+            <span class="method-badge get">GET</span>
+            <h3>API Fast</h3>
+            <p>Rota principal de velocidade. Retorna respostas rápidas para testes de latência e verificação de status.
+            </p>
+
+            <div class="endpoint-box">
+                <span>/apifast</span>
+            </div>
+
+            <a href="/apifast" class="btn-access" target="_blank">Acessar Rota</a>
+        </div>
+        <!-- FIM DO CARD -->
+
+
+        <!-- CARD 2: Sistema de Cache -->
+        <div class="card">
+            <span class="method-badge post">POST</span> <span class="method-badge get">GET</span>
+            <h3>Speedster Cache</h3>
+            <p>Sistema de armazenamento temporário em memória (Redis-like). Use POST para salvar e GET para recuperar.
+            </p>
+
+            <div class="endpoint-box">
+                <span>/api/v1/cache/set</span>
+            </div>
+
+            <!-- Como POST não abre no navegador direto, mandamos para a doc -->
+            <a href="/docs" class="btn-access">Ver na Documentação</a>
+        </div>
+
+
+        <!-- CARD 3: Documentação (Swagger) -->
+        <div class="card">
+            <span class="method-badge get">DOCS</span>
+            <h3>Documentação Completa</h3>
+            <p>Visualize todos os endpoints, esquemas de dados e teste as requisições diretamente pelo Swagger UI.</p>
+
+            <div class="endpoint-box">
+                <span>/docs</span>
+            </div>
+
+            <a href="/docs" class="btn-access">Abrir Swagger</a>
+        </div>
+
+
+        <!-- CARD 4: Exemplo Futuro (Pode apagar ou editar) -->
+        <div class="card">
+            <span class="method-badge get">GET</span>
+            <h3>Dados do Usuário</h3>
+            <p>Retorna informações públicas de perfil baseadas no ID. (Em desenvolvimento).</p>
+
+            <div class="endpoint-box">
+                <span>/users/{id}</span>
+            </div>
+
+            <a href="#" class="btn-access" style="background-color: #334155; cursor: not-allowed;">Em Breve</a>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2025 GratianWeb Systems. Todos os direitos reservados.
+    </footer>
+
+</body>
+
+</html>
