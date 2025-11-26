@@ -121,4 +121,7 @@ async def get_cache(key: str):
         return {"found": True, "key": key, "value": CACHE_DB[key]}
     return {"found": False, "value": None}
 
-# Para rodar: uvicorn main:app --reload --port 26366
+# Para rodar: uvicorn main:app --reload --port 26366 Valor Atual: requirements.txt
+
+
+
